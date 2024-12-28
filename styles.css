@@ -9,9 +9,10 @@
 
 body {
     display: grid;
-    grid-template: 1fr 5fr / 1fr 5fr;
+    grid-template: 1fr 5fr / minmax(200px, 1fr) 5fr;
     min-height: 100vh;
     min-width: 100vw;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 h1 {
@@ -21,6 +22,11 @@ h1 {
 h3 {
     margin-top: 1.5rem;
     margin-bottom: 1rem;
+    color: rgb(80, 80, 80)
+}
+
+ul {
+    list-style-type: none;
 }
 
 /* sidebar */
@@ -30,56 +36,34 @@ h3 {
     color: white;
     background-color: rgb(36, 174, 254);
     padding: 1rem;
-}
-
-#logo-container {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: minmax(50px, 2fr) repeat(5, minmax(50px, 1fr)) 2fr repeat(10, minmax(50px, 1fr));
 }
 
 #logo-icon {
     height: 2rem;
     width: auto;
-    margin-right: .5rem;
-}
-
-.nav {
-    margin-top: 3rem;
-}
-
-ul {
-    list-style-type: none;
-}
-
-.nav > ul > li {
-    display: flex;
-    margin-bottom: .75rem;
 }
 
 .nav-icon {
-    height: 1rem;
+    height: 1.25rem;
     width: auto;
-    margin-right: 1rem;
+    cursor: pointer;
 }
+
 
 /* top / search bar */
 
 #top-bar {
     grid-area: 1 / 2 / 2 / 3;
-    padding: 2rem 3rem 2rem 2rem;
+    padding: 0rem 3rem 1rem 2rem;
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
-    justify-content: space-between;
-}
-
-#search-row {
-    display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
-    grid-area: 1 / 1 / 2 / 3;
-    height: 2rem;
-    margin-bottom: 2rem;
 }
 
 #searchbar-container {
@@ -88,34 +72,27 @@ ul {
 }
 
 #search-bar {
-    background-color: lightgray;
+    background-color: rgb(225, 225, 225);
     border: none;
     border-radius: 1rem;
     height: 1.4rem;
     padding: .5rem;
-    width: 400px;
-    min-width: 200px;
+    margin-left: 1rem;
     font-size: .9rem;
 }
 
 #notifications-corner {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
 }
 
-.profile-img-small { /* issue: loses it's roundedness */
-    height: 2rem;
-    width: 2rem;
-    border-radius: 1rem;
+.profile-img-small { 
+    height: 3rem;
+    width: 3rem;
+    border-radius: 1.5rem;
     background-color: gray;
     margin: 0 1rem;
-}
-
-#profile-row {
-    grid-area: 2 / 1 / 3 / 3;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 #profile-container {
@@ -123,7 +100,7 @@ ul {
     align-items: center;
 }
 
-#profile-container > div > span {
+#profile-container > div > p {
     font-size: .8rem;
 }
 
@@ -134,22 +111,25 @@ ul {
 #profile-img-big {
     height: 3.5rem;
     width: 3.5rem;
-    border-radius: 2rem;
+    border-radius: 1.75rem;
+    flex-shrink: 0;
     background-color: gray;
     margin-right: .5rem;
 }
 
-#profile-row-button-area > ul {
+ul {
     display: flex;
+    justify-content: space-between;
 }
 
-#profile-row-button-area > ul > li {
-    margin-left: 2rem;
+li {
     padding: 0.5rem 1.5rem;
+    margin-left: .5rem;
     border-radius: 1rem;
     background-color: rgb(36, 174, 254);
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
 
 /* main container */
@@ -157,9 +137,10 @@ ul {
 
 #main-container {
     grid-area: 2 / 2 / 3 / 3;
-    background-color: lightgray;
+    background-color: rgb(225, 225, 225);
     display: grid;
     grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
     gap: 15px;
     padding: 0 1rem;
     padding-bottom: 1rem;
@@ -178,12 +159,16 @@ ul {
     justify-content: space-between;
     border-radius: .5rem;
     background-color: white;
-    padding: .5rem;
+    padding: .75rem;
     border-left: 5px solid goldenrod;
 }
 
+.project-card h4 {
+    margin-bottom: .25rem;
+}
+
 .project-card p {
-    font-size: .9rem;
+    font-size: .8rem;
     color: rgb(121, 121, 121);
 }
 
@@ -211,13 +196,18 @@ ul {
     margin: 1rem;
 }
 
+.announcement-card h5 {
+    font-size: .8rem;
+    margin-bottom: .25rem;
+}
+
 #announcements-container div:nth-child(1), #announcements-container div:nth-child(2) {
     border-bottom: 1px solid lightgray;
     margin-bottom: 0;
 }
 
 .announcement-card p {
-    font-size: .8rem;
+    font-size: .7rem;
     color: rgb(121, 121, 121);
 }
 
@@ -230,4 +220,36 @@ ul {
 
 .trend-card {
     padding: .8rem;
+    display: flex;
+    align-items: center;
+}
+
+.trend-pic {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 1.5rem;
+    background-color: gray;
+    margin-right: .75rem;
+}
+
+#tegan {
+    background-color: green;
+}
+
+#dragoa {
+    background-color: pink;
+}
+
+#samuraito {
+    background-color: aquamarine;
+}
+
+.trend-card h6 {
+    color: gray;
+    font-weight: 300;
+    font-size: .8rem;
+}
+
+.trend-card p {
+    font-size: .8rem;
 }
