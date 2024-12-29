@@ -110,7 +110,7 @@ img {
     background-color: rgb(225, 225, 225);
     border: none;
     border-radius: 1rem;
-    flex-basis: 800px;
+    flex-basis: 2000px;
     height: 1.4rem;
     padding: .5rem;
     margin-left: 1rem;
@@ -288,12 +288,12 @@ img {
     flex-shrink: 0;
 }
 
-#tegan {
-    background-color: green;
-}
-
 #morgan {
     background-color: lightgreen;
+}
+
+#tegan {
+    background-color: green;
 }
 
 #dragoa {
