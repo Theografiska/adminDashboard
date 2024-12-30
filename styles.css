@@ -74,7 +74,6 @@ img {
     width: auto;
 }
 
-
 #sidebar ul li {
     display: flex;
     gap: 1rem;
@@ -229,6 +228,80 @@ img {
         grid-template-columns: 1fr;
     }
 }
+
+@media only screen and (max-width: 920px) {
+    #main-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    body {
+    grid-template: 150px 5fr / 150px 5fr;
+    }
+
+    #sidebar {
+        padding: .5rem;
+    }
+
+    #logo-icon {
+        height: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.1rem;
+    }
+
+    ul h2 {
+        font-size: 1rem;
+    }
+
+    #top-bar {
+        grid-template-columns: 1fr 1fr;
+        padding: 0rem 1rem; 
+    }
+
+    #notifications-corner h5 {
+        display: none;
+    }
+
+    .profile-img-small {
+        height: 2rem;
+        width: 2rem;
+        border-radius: 1rem;
+    }
+    
+    #profile-container {
+        display: none;
+    }
+
+    #profile-row-button-area {
+        justify-content: space-around;
+    }
+
+    #button-section {
+        grid-column: 1 / -1;
+    }
+
+    .profile-row-button {
+        margin-left: 0;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+        grid-template: 100px 5fr / 50px 5fr;
+    }
+
+    #sidebar h2, #sidebar h1 {
+        display: none;
+    }
+    #sidebar {
+        align-items: center;
+    }
+}
+
 
 .project-card {
     display: flex;
